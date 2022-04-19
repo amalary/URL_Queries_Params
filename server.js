@@ -27,7 +27,16 @@ app.get('/products/awesome', (req,res) => {
 
 app.get('/greeting', (req,res) => {
     res.send(`Hello ${req.query.firstName} ${req.query.lastName}`)
-})
+}); 
+
+app.get('/add', (req,res) => {
+    const sum = parseInt(req.query.x )+ parseInt(req.query.y)  
+    res.send(`${req.query.x} + ${req.query.y} = ${sum}`)
+}); 
+
+app.get('/menu', (req,res) => {
+    res.send(`We are home of the best ${req.query.food}  all for the price of $${req.query.price}`); 
+}); 
 
 app.get('/dogs/:name/:breed', (req,res) => {
     res.send(`My dogs name is ${req.params.name} the type of breed he is is  a ${req.params.breed}`); 
