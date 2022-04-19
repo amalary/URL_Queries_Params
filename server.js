@@ -20,9 +20,27 @@ const products = ['t-shirt', 'shoes', 'necklace'];
 
 // Refactored Version Of controller
 
+app.get('/products/awesome', (req,res) => {
+    res.send('<h1>My products are awesome</h1>')
+
+});
+
+app.get('/greeting', (req,res) => {
+    res.send(`Hello ${req.query.firstName} ${req.query.lastName}`)
+})
+
+app.get('/dogs/:name/:breed', (req,res) => {
+    res.send(`My dogs name is ${req.params.name} the type of breed he is is  a ${req.params.breed}`); 
+}); 
+
+app.get('/cars/:type', (req,res) => {
+    res.send(`My favorite type of car right now is the ${req.params.type}`); 
+});
+
+
 app.get('/products/:productIndex', (req,res) => {{
     res.send(products[req.params.productIndex]);
-}})
+}});
 
 
 app.get('/users/:firsttName', (req,res) => {res.send(`Hello, ${req.params.firsttName}`)});
