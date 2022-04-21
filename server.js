@@ -1,6 +1,7 @@
 const express = require('express'); 
 const app = express(); 
 const PORT = 4000; 
+const products = require('./models/product_model.js'); 
 
 
 

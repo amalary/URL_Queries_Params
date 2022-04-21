@@ -93,5 +93,27 @@ class Collection {
 
 };
 
+module.exports = new Collection (Product, [
+    {
+        name: 'Boyfriend Jeans',
+        price: 168,
+        image:
+        'https://cdn.shopify.com/s/files/1/1176/4142/products/2015-06-11-Ashley_Look11_50080_23637.jpg?v=1471037731',
+      }, {
+          name: 'Knitted Cashmere Pullover',
+          price: 418.60,
+          image:
+      'https://cdn.shopify.com/s/files/1/1176/4142/products/Look_08_21926_0541_1.jpg?v=1471032586',
+      }, {
+          name: 'Azur Bracelet in Blue Azurite',
+          price: 168,
+          image:
+      'https://cdn.shopify.com/s/files/1/1176/4142/products/2015-05-08_Laydown_Look2_14120_21584.jpg?v=1471027398',
+      }, ]
+    ); 
+    
+    
+    
+
 
 
