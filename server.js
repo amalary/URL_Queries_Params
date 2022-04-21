@@ -9,11 +9,25 @@ const products = require('./models/product_model.js');
 
 
 // show route 
+
+// View Code 
+
+app.set('view engine', 'ejs'); 
+
+app.use(express.static('public'))
+
 // this route will catch GET requests to /products/index/ and respond with a single product
 
 app.get('/products/', (req,res) => {
-    res.send(products.find()); 
+    const allProducts = products.find(); 
+
+    const context = {products: allProducts}; 
+    res.render('index.ejs', context); 
+    // res.send(products.find()); 
 }); 
+
+
+
 
 app.get('/products/:productId', (req,res) => {
     products.findById(req.params.productId, (error, foundItem) => {
