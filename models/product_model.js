@@ -39,19 +39,59 @@ class Collection {
         this.#items = this.#populateItems(startingData); 
     }
 
+    // It will take in an array as an argument 
+
+    // It will return an object that contains {id as a key} and {the items as the value}; 
+
+    #populateItems(startingData) {
+
+        return startingData.reduce(( acc, item, idx ) => {
+            this.#currentId = idx;
+            acc[this.#currentId] = new this.#Model(item, idx) 
+            return acc
+        }, {}); 
+    
+    
+    }; 
+    
+    #generateId(){
+        return ++this.#currentId
+    }; 
+
+    // Will return an array with all items availible in this.items 
+    // return array 
+
+    find(){
+        return Object.values(this.#items); 
+    }
+
+    /**
+   * @description Will return item match with the itemId
+   * @param { string } itemId
+   * @param { function } callBack Will return error or item
+   * @returns function;
+   */
+
+    findById(itemId,callBack) { 
+        if(!itemId) return console.log('Missing Id in first argument')
+
+        if(typeof callBack !== 'function') {
+            return console.log('Missing function in second argument')
+
+        }; 
+        let error; 
+        const item = this.#items[itemId]; 
+
+        if(!item){
+            error = {message: `item with id ${itemId} cant't be found`}; 
+        }
+        return callBack(error,item); 
+    }; 
+
+
+
+
 };
 
-// It will take in an array as an argument 
-
-// It will return an object that contains {id as a key} and {the items as the value}; 
-
-#populateItems(startingData); {
-
-    return startingData.reduce(( acc, item, idx ) => {
-        this.#currentId = idx;
-        acc[this.#currentId] = new this.#Model(item, idx) 
-        return acc
-    }, {}); 
 
 
-}; 
