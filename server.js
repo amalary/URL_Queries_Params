@@ -3,6 +3,12 @@ const app = express();
 const PORT = 4000; 
 const products = require('./models/product_model.js'); 
 
+
+
+app.get('/products/new',(req,res) => {
+    res.render('new.ejs')
+})
+
 // View Code 
 
 app.set('view engine', 'ejs'); 
