@@ -88,6 +88,38 @@ class Collection {
         return callBack(error,item); 
     }; 
 
+    /**
+ * @param {object} data
+ * @param { function } callBack Will return error or item
+ * @returns function;
+*/
+
+    create(data, callBack) {
+
+        if(!data) return console.log('Missing data in first argument');
+
+        if(typeof callBack !== "function" ) {
+            return console.log('Missing function in second argument')
+        }
+        let error, newItem
+
+        const isEmpty = Object.keys(data).every(field => data[field] === ""); 
+
+        if(isEmpty) {
+            error = {message: 'you have empty fields'}; 
+        }
+        else{
+
+            newItem = new this.#Model(data,this.#generateId()); 
+
+            this.#items[newItem.id] = newItem; 
+        }
+        return callBack(error,newItem); 
+
+    }
+
+
+
 
 
 

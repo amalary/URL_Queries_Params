@@ -5,6 +5,22 @@ const products = require('./models/product_model.js');
 
 
 
+
+
+
+// Middleware 
+
+app.use((req,res, next) => {
+
+    console.log(`${req.method} ${req.originalUrl}`); 
+
+    next(); 
+})
+
+app.post('/products/', (req,res) => {
+    res.send('hi')
+})
+
 app.get('/products/new',(req,res) => {
     res.render('new.ejs')
 })
@@ -46,15 +62,18 @@ app.get('/products/:productIndex', (req,res) => {{
 
 }});
 
+
+
+
 // 404
 
 app.get('/*', (req,res) => {
     const context = {error: req.error}; 
-    if(error){
-        console.log(error);
-        req.error = error; 
-        return next();
-    }
+    // if(error){
+    //     console.log(error);
+    //     req.error = error; 
+    //     return next();
+    // }
     return res.status(404).render('404', context); 
 })
 
