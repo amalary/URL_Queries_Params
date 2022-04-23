@@ -18,18 +18,24 @@ src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yE
   <title>SellItUp</title>
 </head>
 <body class="has-navbar-fixed-top">
-<!-- https://bulma.io/documentation/components/navbar/#fixed-navbar --> <nav
+<!-- https://bulma.io/documentation/components/navbar/#fixed-navbar --> 
+
+<nav
 class="navbar is-dark is-fixed-top" role="navigation"
 aria-label="main navigation"
 >
 <div class="navbar-brand">
-<a class="navbar-item" href="/products"> All Products </a>  
-
-<arole="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+<a class="navbar-item" href="/products"> All Products </a>
+<a
+role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
 >
 <span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span>
-</arole=> </div>
+</a> </div>
+<!-- this will add a link to the new <div class="navbar-menu navbar-end">
+route -->
+<a class="navbar-item" href="/products/new"> New Product </a> </div>
 </nav>
+
 <section class="hero is-medium has-background-light">
 <div class="hero-body">
 <h1 class="title">Product Show Page</h1>

@@ -29,9 +29,7 @@ app.post('/products/', (req,res) => {
 
         if(error) return console.log(error)
     })
-    console.log(createdProduct);
-    console.log(products); 
-    res.send('data recieved')
+    return res.redirect('/products');
 })
 
 app.get('/products/new',(req,res) => {
