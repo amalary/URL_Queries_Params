@@ -3,6 +3,39 @@ const app = express();
 const PORT = 4000; 
 const products = require('./models/product_model.js'); 
 
+
+
+
+
+
+// Middleware 
+
+app.use(express.urlencoded({extended: false}))
+
+
+
+app.use((req,res, next) => {
+
+    console.log(`${req.method} ${req.originalUrl}`); 
+
+    next(); 
+})
+
+
+// Show Routes
+
+app.post('/products/', (req,res) => {
+    products.create(req.body, (error, createdProduct) => {
+
+        if(error) return console.log(error)
+    })
+    return res.redirect('/products');
+})
+
+app.get('/products/new',(req,res) => {
+    res.render('new.ejs')
+})
+
 // View Code 
 
 app.set('view engine', 'ejs'); 
@@ -40,15 +73,18 @@ app.get('/products/:productIndex', (req,res) => {{
 
 }});
 
+
+
+
 // 404
 
 app.get('/*', (req,res) => {
     const context = {error: req.error}; 
-    if(error){
-        console.log(error);
-        req.error = error; 
-        return next();
-    }
+    // if(error){
+    //     console.log(error);
+    //     req.error = error; 
+    //     return next();
+    // }
     return res.status(404).render('404', context); 
 })
 
