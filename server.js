@@ -10,6 +10,10 @@ const products = require('./models/product_model.js');
 
 // Middleware 
 
+app.use(express.urlencoded({extended: false}))
+
+
+
 app.use((req,res, next) => {
 
     console.log(`${req.method} ${req.originalUrl}`); 
@@ -17,8 +21,17 @@ app.use((req,res, next) => {
     next(); 
 })
 
+
+// Show Routes
+
 app.post('/products/', (req,res) => {
-    res.send('hi')
+    products.create(req.body, (error, createdProduct) => {
+
+        if(error) return console.log(error)
+    })
+    console.log(createdProduct);
+    console.log(products); 
+    res.send('data recieved')
 })
 
 app.get('/products/new',(req,res) => {
