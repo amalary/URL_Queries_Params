@@ -6,8 +6,6 @@ const products = require('./models/product_model.js');
 
 
 
-
-
 // Middleware 
 
 app.use(express.urlencoded({extended: false}))
