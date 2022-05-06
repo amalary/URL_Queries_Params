@@ -57,6 +57,30 @@ router.get('/:productId', (req,res) => {
 router.get('/:productIndex', (req,res) => {{
     res.send(products[req.params.productIndex]);
 
+
+
+
+router.get('/:productId/editForm', (req,res) => {
+    products.findById(req.params.productId, (error, foundItem) => {
+        if (error) return console.log(error); 
+
+        return res.render('edit.ejs', {product:foundItem})
+    })
+});
+
+// update route 
+
+router.put('/:productId',(req,res) => {
+    products.findById(req.params.productId, req.body, (error,updatedProduct) => {
+        if(error) return console.log(error)
+
+        return res.redirect(`/products/:${updatedProduct.id}`)
+    })
+})
+
+
+
+
 }});
 router.get('/', (req,res) => {
 

@@ -12,13 +12,13 @@ const productsCtrlrs = require('./controllers/products_controllers')
 
 
 
-app.use(methodOverride('_method'))
 
 app.use('/products', productsCtrlrs)
 
 
 app.set('view engine', 'ejs'); 
 
+app.use(methodOverride('_method'))
 
 router.use((req,res, next) => {
 
@@ -45,3 +45,5 @@ app.get('/*', (req,res) => {
 // Index Route 
 // this route will catch GET requests to /products/ and respond with all the products
 app.listen(PORT, () => console.log(`Listen for client request on port ${PORT}`)); 
+
+

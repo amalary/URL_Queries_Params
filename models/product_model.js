@@ -135,6 +135,22 @@ class Collection {
         return callBack(error,item); 
     }; 
 
+    findByIdUpdate(itemId,data,callBack) {
+        let error = null; 
+        const item = this.#items[itemId]; 
+
+        if(!item) { 
+            error = {message: `item cannot be found`}
+        }
+        else{
+            this.#items[itemId] = {
+                item, 
+                data,
+            }
+        }
+        return callBack(error,this.#items[itemId])
+    }
+
 
 
 
