@@ -1,6 +1,6 @@
 // temporary, simulated database
 
-const products = [
+const product = [
     {
     name: 'Boyfriend Jeans',
     price: 168,

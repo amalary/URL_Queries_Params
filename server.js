@@ -4,12 +4,25 @@ const app = express();
 const PORT = 4000; 
 
 const router = express.Router()
+
 const productsCtrlrs = require('./controllers/products_controllers')
 
 
 
 
 app.use('/products', productsCtrlrs)
+
+
+
+app.set('view engine', 'ejs'); 
+
+
+router.use((req,res, next) => {
+
+    console.log(`${req.method} ${req.originalUrl}`); 
+
+    next(); 
+})
 
 
 
