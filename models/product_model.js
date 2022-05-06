@@ -116,7 +116,24 @@ class Collection {
         }
         return callBack(error,newItem); 
 
-    }
+    };
+
+    /**
+   * @param {string} itemId
+   * @param { function } callBack Will return error or item
+   * @returns function;
+   */
+
+    findByIdAndDelete(itemId, callback) { 
+        let error = null;
+        const item = this.#items[itemId]
+        const isDeleted = delete this.#items[itemId]; 
+
+        if(!isDeleted) {
+            error = {message: `Item with id ${itemId} has not been found`}
+        }
+        return callBack(error,item); 
+    }; 
 
 
 
