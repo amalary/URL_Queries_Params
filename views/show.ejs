@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta
-  <meta
-  <meta
-charset="UTF-8" />
-http-equiv="X-UA-Compatible" content="IE=edge" />
-name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link
 rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
 />
@@ -22,13 +19,10 @@ src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yE
 
 <nav
 class="navbar is-dark is-fixed-top" role="navigation"
-aria-label="main navigation"
->
+aria-label="main navigation">
 <div class="navbar-brand">
 <a class="navbar-item" href="/products"> All Products </a>
-<a
-role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
->
+<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
 <span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span>
 </a> </div>
 <!-- this will add a link to the new <div class="navbar-menu navbar-end">
@@ -48,6 +42,21 @@ route -->
 <div class="media-content">
 <div class="content">
 <h3>name: <%= product.name %></h3> <small>price: <%= product.price %></small>
+<div class="field is-grouped mt-5"></div>
+<!-- Edit Link -->
+<div class="control">
+<a class="button is-info" href="/products/<%= product.id %>/edit">Edit Product
+</a> </div>
+<div class="control">
+  <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+  <input class="button is-danger" type="submit" value=" Delete Product"/> </form>
+    </div>
+  </div>
+<div class="field mt-5 is-grouped">
+  <p class="control">
+    <form action="/products/<%= product.id %>?_method=DELETE" method="POST"></form>
+  <input class="button is-danger" type="submit" value=" Delete Product"/> </form>
+  </p> </div>
           </div>
         </div>
       </article>
