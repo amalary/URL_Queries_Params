@@ -67,8 +67,8 @@ router.get('/:productId/editForm', (req,res) => {
         return res.render('edit.ejs', {product:foundItem})
     })
 });
-
 // update route 
+
 
 router.put('/:productId',(req,res) => {
     products.findById(req.params.productId, req.body, (error,updatedProduct) => {
